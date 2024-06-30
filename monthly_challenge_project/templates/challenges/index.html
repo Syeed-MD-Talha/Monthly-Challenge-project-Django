@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}List of Months{% endblock page_title %}
+{% block css_files %}
+  <link rel="stylesheet" href='{% static "index.css" %}'>
+  <link rel="stylesheet" href='{% static "includes/header.css" %}'>
+{% endblock css_files %}
+
+{% block content %}
+ {% include "components/navBar.html" %}
+<ul>
+    {% for month in months %} 
+      <li><h2><a href="{% url 'challenge_path' month=month %}">{{month|title}}</a></h2></li>
+    {% endfor %}
+</ul>
+{% endblock content %}
+

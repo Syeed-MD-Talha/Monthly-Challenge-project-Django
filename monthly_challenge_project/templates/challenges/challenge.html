@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+{{month_name.upper}} Challenges
+{% endblock page_title %}
+
+{% block css_files %}
+  <link rel="stylesheet" href='{% static "challenge.css" %}'>
+  <link rel="stylesheet" href='{% static "includes/header.css" %}'>
+{% endblock css_files %}
+
+{% block content %}
+{% include "../components/navBar.html" %}
+    <h1>{{month_name|capfirst}} Challenges</h1>
+    {% if month_text %} 
+    <h2>{{month_text}}</h2>
+    {% else %}
+    <h3 class="fallback">There is no challenges in this month yet!</h3>
+    {% endif %}
+{% endblock content %}
+
+
